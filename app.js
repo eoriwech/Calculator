@@ -8,20 +8,33 @@ function add(num1, num2) {
     return result;
 }
 
-//Subtraction of two numbers
+//subtraction of two numbers
 function subtract(num1, num2) {
     let result = num1 - num2;
     return result;
 }
 
-//Multiplication of two numbers
+//multiplication of two numbers
 function multiply(num1, num2) {
     let result = num1 * num2;
     return result;
 }
 
-//Divide two numbers
+//divide two numbers
 function divide(num1, num2) {
     let result = num1 / num2;
     return result;
+}
+
+//carry out relevant arithmetic according to the given operator input
+function operate(operator, num1, num2) {
+    if (operator == "+") {
+        return add(num1, num2);
+    } else if (operator == "-") {
+        return subtract(num1, num2);
+    } else if (operator == "*") {
+        return multiply(num1, num2);
+    } else if (operator == "/") {
+        return divide(num1, num2);
+    }
 }
