@@ -1,3 +1,7 @@
+let firstNum = null;
+let secondNum = null;
+let operatorSign = null;
+
 //performs addition of two numbers
 function add(num1, num2) {
     let result = num1 + num2;
