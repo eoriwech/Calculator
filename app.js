@@ -1,6 +1,7 @@
 let firstNum = null;
 let secondNum = null;
 let operatorSign = null;
+let displayValue = "";
 
 //performs addition of two numbers
 function add(num1, num2) {
@@ -38,3 +39,12 @@ function operate(operator, num1, num2) {
         return divide(num1, num2);
     }
 }
+
+//event listener
+let display = document.querySelector(".display-container");
+document.querySelectorAll("button").forEach((item) => {
+    item.addEventListener("click", (e) => {
+        displayValue += `${e.target.innerText}`;
+        display.textContent = displayValue;
+    })
+})
