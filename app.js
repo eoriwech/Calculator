@@ -67,3 +67,17 @@ document.querySelectorAll(".number-btn").forEach((item) => {
     })
 })
 
+//event listener to remove all the characters in the calculator display 
+clearButton.addEventListener('click', () => {
+    displayValue = "";
+    displayInput.textContent = displayValue;
+    displayOutput.textContent = "";
+    
+})
+
+//event listener to remove the last character in the display screen
+delButton.addEventListener('click', () => {
+    displayValue = displayValue.slice(0, displayValue.length -1);
+    displayInput.textContent = displayValue;
+})
+
