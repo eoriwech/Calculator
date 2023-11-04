@@ -89,6 +89,29 @@ resultButton.addEventListener('click', () => {
     displayOutput.textContent = finalValue;
 })
 
+//event listener to display the operator sign when pressed
+operatorButton.forEach((item) => {
+    item.addEventListener('click', (e) => {
+        displayValue += ` ${e.target.innerText} `;
+        displayInput.textContent = displayValue;
+        let displayValueArray = displayValue.split(" ");
+        if (displayValueArray[2] != "") {
+            finalValue = parseFloat(displayValueArray[0]);
+            currentOperator = displayValueArray[1];
+            nextNum = parseFloat(displayValueArray[2])
+            finalValue = operate(currentOperator, finalValue, nextNum);
+            displayOutput.textContent = finalValue;
+            displayValueArray[0] = `${finalValue}`;
+            displayValueArray.splice(1, 2)
+            displayValue = displayValueArray.join(" ");
+        }
+        //rounding up the final value up to 5 decimal places
+        finalValue = rounding(finalValue);
+        
+        displayOutput.textContent = finalValue;
+    })
+})
+
 //event listener to remove all the characters in the calculator display 
 clearButton.addEventListener('click', () => {
     displayValue = "";
