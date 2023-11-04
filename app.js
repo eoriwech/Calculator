@@ -67,6 +67,28 @@ document.querySelectorAll(".number-btn").forEach((item) => {
     })
 })
 
+//event listener to carry out the calculation when equal button is pressed
+//the value of the variable 'displayValue' is split into array
+//the operate function is then called with the resulting value of the variables
+resultButton.addEventListener('click', () => {
+    let displayValueArray = displayValue.split(" ");
+    finalValue = parseFloat(displayValueArray[0]);
+
+    //loop through odd index number position where operators are expected
+    //assign the next number which is one higher than operator index position
+    //evalute the result and assign it to the final value
+    for (let i = 1; i < displayValueArray.length; i += 2) {
+        currentOperator = displayValueArray[i];
+        nextNum = parseFloat(displayValueArray[i + 1])
+        finalValue = operate(currentOperator, finalValue, nextNum);
+    }
+ 
+    //rounding up the final value up to 5 decimal places
+    finalValue = rounding(finalValue);
+
+    displayOutput.textContent = finalValue;
+})
+
 //event listener to remove all the characters in the calculator display 
 clearButton.addEventListener('click', () => {
     displayValue = "";
@@ -80,4 +102,3 @@ delButton.addEventListener('click', () => {
     displayValue = displayValue.slice(0, displayValue.length -1);
     displayInput.textContent = displayValue;
 })
-
